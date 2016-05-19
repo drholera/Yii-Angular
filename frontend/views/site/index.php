@@ -1,31 +1,20 @@
 <?php
 
 /* @var $this yii\web\View */
-use dosamigos\datepicker\DatePicker;
+
 $this->title = 'My Yii Application';
 
 ?>
-<div class="site-index">
+<div class="site-index" ng-controller="FormController">
     <div class="form-wrapper">
-        <form class="form-horizontal" ng-submit="submit()" ng-controller="FormController">
+        <form class="form-horizontal" ng-submit="submit()" >
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="formGroupInputLarge">Amount</label>
                 <div class="col-sm-4">
                     <input class="form-control" type="number" id="formGroupInputLarge" placeholder="Amount" ng-model="amount">
                 </div>
                 <div class="col-sm-5">
-                    <?= DatePicker::widget([
-                        'model' => $model,
-                        'attribute' => 'date',
-                        'template' => '{addon}{input}',
-                        'clientOptions' => [
-                            'autoclose' => true,
-                            'format' => 'dd-M-yyyy',
-                        ],
-                        'options' => [
-                            'ng-model' =>'selectedDate'
-                        ]
-                    ]);?>
+                    <input class="form-control" ng-model="selectedDate" id="datepicker" jqdatepicker>
                 </div>
 
             </div>
@@ -52,6 +41,14 @@ $this->title = 'My Yii Application';
                     <td>Description</td>
                 </tr>
             </thead>
+            <tbody >
+                <tr ng-repeat="value in transactions">
+                    <td>{{value.id}}</td>
+                    <td>{{value.amount}}</td>
+                    <td>{{value.date * 1000 | date}}</td>
+                    <td>{{value.description}}</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>

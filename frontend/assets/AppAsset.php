@@ -13,10 +13,12 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
+        'css/jquery-ui.min.css',
     ];
     public $js = [
         'js/cashApp.js',
-        'js/ui-bootstrap-tpls-1.3.2.min.js'
+        'js/jquery-ui.min.js',
+        'js/datepickerInit.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

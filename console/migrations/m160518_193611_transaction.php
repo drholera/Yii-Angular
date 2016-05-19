@@ -15,7 +15,7 @@ class m160518_193611_transaction extends Migration
         $this->createTable('{{%transaction}}', [
             'id' => $this->primaryKey(),
             'amount' => $this->integer()->notNull()->defaultValue(0),
-            'date' => $this->timestamp()->defaultValue(0),
+            'date' => $this->text(),
             'description' => $this->text()
         ], $tableOptions);
     }
